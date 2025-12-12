@@ -25,7 +25,7 @@ const HowItWorks = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
           How It Works
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12">
+        <p className="text-gray-400 dark:text-gray-300 mb-12">
           AssetVerse brings simplicity & automation to corporate asset handling.
         </p>
 
@@ -33,13 +33,13 @@ const HowItWorks = () => {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition"
+              className="p-8 bg-base-200 dark:bg-gray-900 border border-gray-500 rounded-xl shadow-md hover:shadow-xl transition-transform"
             >
               <div className="mb-4 flex justify-center">{step.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-700 dark:text-white">
+              <h3 className="text-xl font-semibold text-gray-300 dark:text-white">
                 {step.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">
+              <p className="text-gray-400 dark:text-gray-300 mt-2">
                 {step.desc}
               </p>
             </div>

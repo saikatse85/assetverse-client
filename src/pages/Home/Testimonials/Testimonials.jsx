@@ -36,7 +36,7 @@ const Testimonials = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
           What Our Clients Say
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
+        <p className="text-gray-400 dark:text-gray-300 text-lg md:text-xl">
           Trusted by hundreds of companies around the globe
         </p>
       </div>
@@ -46,22 +46,20 @@ const Testimonials = () => {
         {testimonials.map((t, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-colors duration-500 flex flex-col justify-between"
+            className="bg-base-200 dark:bg-gray-900 p-6 border border-gray-400 rounded-xl shadow-lg hover:shadow-xl transition-colors duration-500 flex flex-col justify-between"
           >
             <div className="mb-4">
-              <p className="text-gray-700 dark:text-gray-200 mb-2">
-                {t.feedback}
-              </p>
+              <p className="dark:text-gray-300 mb-2">{t.feedback}</p>
               <div className="flex items-center gap-2">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <FaStar key={i} className="text-yellow-400 w-4 h-4" />
                 ))}
               </div>
             </div>
-            <div className="mt-4 text-gray-500 font-semibold">{t.name}</div>
-            <div className="text-gray-500 dark:text-gray-400 text-sm">
-              {t.role}
+            <div className="mt-4 dark:text-gray-200 font-semibold">
+              {t.name}
             </div>
+            <div className="dark:text-gray-300 text-sm">{t.role}</div>
           </div>
         ))}
       </div>
@@ -71,13 +69,13 @@ const Testimonials = () => {
         {stats.map((s, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-colors duration-500 flex flex-col items-center"
+            className="bg-base-200 dark:bg-gray-900 p-6 border border-gray-400 rounded-xl shadow-lg hover:shadow-xl transition-colors duration-500 flex flex-col items-center"
           >
             <div className="mb-4">{s.icon}</div>
-            <div className="text-3xl text-gray-700 font-bold mb-2">
+            <div className="text-3xl dark:text-gray-400 font-bold mb-2">
               {s.value}
             </div>
-            <div className="text-gray-600 dark:text-gray-300">{s.label}</div>
+            <div className="text-gray-500 dark:text-gray-500">{s.label}</div>
           </div>
         ))}
       </div>

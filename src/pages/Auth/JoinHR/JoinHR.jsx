@@ -36,16 +36,15 @@ const JoinHR = () => {
     try {
       const imageURl = await imageUpload(imageFile);
 
-      // 1️⃣ Create Firebase user
+      //Create Firebase user
       const user = await createUser(email, password);
 
-      // 2️⃣ Update display name
+      //Update display name
       await updateUserProfile(name, imageURl);
 
-      const token = await user.getIdToken();
-      console.log("Firebase ID token:", token);
+      await user.getIdToken();
 
-      // 3️⃣ Send HR data to backend
+      // Send HR data to backend
       const hrData = {
         name,
         email,
@@ -74,14 +73,14 @@ const JoinHR = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
       <div className="w-full max-w-md p-6 rounded-xl shadow-lg bg-base-100 dark:bg-gray-900 transition-colors">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-600 dark:text-gray-200">
+        <h2 className="text-2xl font-bold text-center mb-6 dark:text-gray-200">
           Join as HR Manager
         </h2>
 
         <form onSubmit={handleSubmit(handleHRRegister)} className="space-y-4">
           {/* Full Name */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-400">
               Full Name
             </label>
             <input
@@ -97,7 +96,7 @@ const JoinHR = () => {
 
           {/* Company Name */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-500">
               Company Name
             </label>
             <input
@@ -115,7 +114,7 @@ const JoinHR = () => {
 
           {/* Company Logo */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Company Logo URL
             </label>
             <fieldset className="fieldset">
@@ -136,7 +135,7 @@ const JoinHR = () => {
 
           {/* Email */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Email
             </label>
             <input
@@ -152,7 +151,7 @@ const JoinHR = () => {
 
           {/* Password */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Password
             </label>
             <input
@@ -179,7 +178,7 @@ const JoinHR = () => {
 
           {/* Date of Birth */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Date of Birth
             </label>
             <input

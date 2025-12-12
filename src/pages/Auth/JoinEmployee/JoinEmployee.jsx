@@ -58,7 +58,7 @@ const JoinEmployee = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
       <div className="w-full max-w-md p-6 rounded-xl shadow-lg bg-base-100 dark:bg-gray-900 transition-colors">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-600 dark:text-gray-200">
+        <h2 className="text-2xl font-bold text-center mb-6 dark:text-gray-300">
           Join as Employee
         </h2>
 
@@ -68,7 +68,7 @@ const JoinEmployee = () => {
         >
           {/* Name */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Full Name
             </label>
             <input
@@ -83,7 +83,7 @@ const JoinEmployee = () => {
           </div>
           {/* Image*/}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Image URL
             </label>
             <fieldset className="fieldset">
@@ -104,7 +104,7 @@ const JoinEmployee = () => {
 
           {/* Email */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Email
             </label>
             <input
@@ -120,7 +120,7 @@ const JoinEmployee = () => {
 
           {/* Password */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Password
             </label>
             <input
@@ -147,7 +147,7 @@ const JoinEmployee = () => {
 
           {/* DOB */}
           <div>
-            <label className="font-semibold text-gray-700 dark:text-gray-200">
+            <label className="font-semibold text-gray-300 dark:text-gray-200">
               Date of Birth
             </label>
             <input

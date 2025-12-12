@@ -65,13 +65,13 @@ const FeaturesShowcase = () => {
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center"
+            className="bg-base-100 dark:bg-gray-900 p-6 border border-gray-500 rounded-xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center"
           >
             <div className="mb-4">{feature.icon}</div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">
               {feature.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-500 dark:text-gray-300">
               {feature.description}
             </p>
           </div>
