@@ -64,7 +64,7 @@ const AssetList = () => {
         if (result.isConfirmed) {
           Swal.fire({
             title: "Deleted!",
-            text: "Your file has been deleted.",
+            text: "Your file has been deleted",
             icon: "success",
           });
         }
