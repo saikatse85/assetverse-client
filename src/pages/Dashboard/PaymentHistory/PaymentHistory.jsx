@@ -17,8 +17,6 @@ const PaymentHistory = () => {
     },
   });
 
-  console.log(payments);
-
   if (isLoading) return <LoadingSpinner />;
 
   return (
@@ -43,7 +41,7 @@ const PaymentHistory = () => {
               <td>{p.amount}</td>
               <td>{p.transactionId}</td>
               <td>{new Date(p.paymentDate).toLocaleString()}</td>
-              <td>{p.status}</td>
+              <td className="text-green-600">{p.status}</td>
             </tr>
           ))}
         </tbody>
