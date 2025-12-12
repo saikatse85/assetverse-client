@@ -17,7 +17,6 @@ const AddAsset = () => {
   const [imageURL, setImageURL] = useState("");
   const axiosSecure = useAxiosSecure();
   const hrEmail = user?.email;
-  console.log("token", user?.accessToken);
 
   // Image Upload
   const handleImageChange = async (e) => {
