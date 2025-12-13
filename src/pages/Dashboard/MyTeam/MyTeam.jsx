@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
-import { useState, useEffect } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useState } from "react";
 
 const MyTeam = () => {
   const { user } = useAuth();
   const [selectedCompany, setSelectedCompany] = useState("");
-  const [birthdays, setBirthdays] = useState([]);
   const axiosSecure = useAxiosSecure();
 
   const {
@@ -17,12 +16,10 @@ const MyTeam = () => {
   } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(
-        `http://localhost:3000/hr/employees/${user?.email}`
-      );
+      const res = await axiosSecure.get(`/hr/employees/${user?.email}`);
       return res.data;
     },
-    enabled: !!user?.email, // only fetch when user.email is available
+    enabled: !!user?.email,
   });
 
   const companies = [...new Set(employees.map((emp) => emp.companyName))];
@@ -31,19 +28,10 @@ const MyTeam = () => {
     ? employees.filter((emp) => emp.companyName === selectedCompany)
     : employees;
 
-  useEffect(() => {
-    if (!employees) return;
-
-    const now = new Date().getMonth();
-    const monthBirthdays = employees.filter(
-      (emp) => emp.dateOfBirth && new Date(emp.dateOfBirth).getMonth() === now
-    );
-
-    setBirthdays((prev) => {
-      if (prev.length === monthBirthdays.length) return prev;
-      return monthBirthdays;
-    });
-  }, [employees]);
+  const now = new Date().getMonth();
+  const birthdays = employees.filter(
+    (emp) => emp.dateOfBirth && new Date(emp.dateOfBirth).getMonth() === now
+  );
 
   if (isLoading) return <LoadingSpinner />;
   if (error) return <p>Error loading team data.</p>;
@@ -85,6 +73,9 @@ const MyTeam = () => {
                 {emp.companyName}
               </p>
               <p className="text-center text-xs font-medium text-blue-600 mt-1">
+                {emp.position}
+              </p>
+              <p className="text-center text-xs font-medium text-green-600 mt-1">
                 Assets: {emp.assetsCount ?? 0}
               </p>
             </div>
