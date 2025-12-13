@@ -1,6 +1,6 @@
 ## Project Name
 
-    AssetVerse
+🚀 ASSETVERSE
 
 ## Purpose
 
