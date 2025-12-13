@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
-import axios from "axios";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 import { useState, useEffect } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyTeam = () => {
   const { user } = useAuth();
   const [selectedCompany, setSelectedCompany] = useState("");
   const [birthdays, setBirthdays] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   const {
     data: employees = [],
@@ -16,13 +17,12 @@ const MyTeam = () => {
   } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: async () => {
-      const res = await axios.get(
+      const res = await axiosSecure.get(
         `http://localhost:3000/hr/employees/${user?.email}`
       );
-      console.log(res.data);
       return res.data;
     },
-    enabled: !!user?.email,
+    enabled: !!user?.email, // only fetch when user.email is available
   });
 
   const companies = [...new Set(employees.map((emp) => emp.companyName))];
@@ -32,12 +32,17 @@ const MyTeam = () => {
     : employees;
 
   useEffect(() => {
+    if (!employees) return;
+
     const now = new Date().getMonth();
-    setBirthdays(
-      employees.filter(
-        (emp) => emp.dateOfBirth && new Date(emp.dateOfBirth).getMonth() === now
-      )
+    const monthBirthdays = employees.filter(
+      (emp) => emp.dateOfBirth && new Date(emp.dateOfBirth).getMonth() === now
     );
+
+    setBirthdays((prev) => {
+      if (prev.length === monthBirthdays.length) return prev;
+      return monthBirthdays;
+    });
   }, [employees]);
 
   if (isLoading) return <LoadingSpinner />;
