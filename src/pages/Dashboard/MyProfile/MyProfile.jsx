@@ -15,7 +15,9 @@ const MyProfile = () => {
     if (!loggedUser?.email) return;
 
     axiosSecure
-      .get(`http://localhost:3000/profile/${loggedUser.email}`)
+      .get(
+        `https://assetverse-server-lyart.vercel.app/profile/${loggedUser.email}`
+      )
       .then((res) => setUser(res.data))
       .catch((err) => console.log(err));
   }, [loggedUser]);

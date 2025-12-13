@@ -43,7 +43,10 @@ const JoinEmployee = () => {
         profileImage: imageURl,
         createdAt: new Date(),
       };
-      await axiosSecure.post("http://localhost:3000/users", userData);
+      await axiosSecure.post(
+        "https://assetverse-server-lyart.vercel.app/users",
+        userData
+      );
 
       setSuccess("Employee account created successfully!");
       reset();

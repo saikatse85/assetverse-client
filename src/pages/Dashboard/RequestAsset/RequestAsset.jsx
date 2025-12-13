@@ -19,7 +19,9 @@ const RequestAsset = () => {
   const { data: assets = [], isLoading } = useQuery({
     queryKey: ["assets"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get("http://localhost:3000/assets");
+      const { data } = await axiosSecure.get(
+        "https://assetverse-server-lyart.vercel.app/assets"
+      );
       return data.filter((asset) => asset.availableQuantity > 0);
     },
   });
@@ -50,7 +52,7 @@ const RequestAsset = () => {
 
     try {
       const res = await axiosSecure.post(
-        "http://localhost:3000/requests",
+        "https://assetverse-server-lyart.vercel.app/requests",
         requestData
       );
 

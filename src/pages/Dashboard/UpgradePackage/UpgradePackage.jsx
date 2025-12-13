@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
-import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UpgradePackage = () => {
@@ -16,7 +15,9 @@ const UpgradePackage = () => {
   } = useQuery({
     queryKey: ["packages"],
     queryFn: async () => {
-      const res = await axiosSecure("/packages");
+      const res = await axiosSecure(
+        "https://assetverse-server-lyart.vercel.app/packages"
+      );
       return res.data;
     },
   });

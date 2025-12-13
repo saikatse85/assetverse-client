@@ -44,7 +44,7 @@ const AboutUs = () => {
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className="bg-base-50 hover:bg-primary dark:text-white p-6 border border-l-gray rounded-xl shadow hover:shadow-lg transition"
+            className="bg-base-50 btn-primary dark:text-white p-6 border border-l-gray rounded-xl shadow hover:shadow-lg transition"
           >
             <div className="mb-4">{benefit.icon}</div>
             <h3 className="text-xl dark:text-gray-400 font-semibold mb-2">

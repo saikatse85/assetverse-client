@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
+import { Link } from "react-router";
 
 const PackagesSection = () => {
   // Fetch packages from backend
@@ -11,7 +12,9 @@ const PackagesSection = () => {
   } = useQuery({
     queryKey: ["packages"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/packages");
+      const res = await axios.get(
+        "https://assetverse-server-lyart.vercel.app/packages"
+      );
       return res.data;
     },
   });
@@ -66,9 +69,12 @@ const PackagesSection = () => {
               <p className="text-3xl font-bold mb-4 dark:text-white">
                 ${pkg.price}/month
               </p>
-              <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-focus transition">
+              <Link
+                to="/login"
+                className="btn px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-focus transition"
+              >
                 Choose Plan
-              </button>
+              </Link>
             </div>
           </div>
         ))}

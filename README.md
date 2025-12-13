@@ -24,7 +24,7 @@ Overall, AssetVerse demonstrates a real-world enterprise-level solution that com
 
 ## 🌐 Live URL
 
-**Live Site:**
+**Live Site:** https://assignment-11-839b6.web.app/
 
 ## Key Features
 

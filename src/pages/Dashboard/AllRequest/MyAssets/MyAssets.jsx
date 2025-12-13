@@ -21,7 +21,7 @@ const MyAssets = () => {
     queryKey: ["assignedAssets", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `http://localhost:3000/assigned-assets/${user?.email}`
+        `https://assetverse-server-lyart.vercel.app/assigned-assets/${user?.email}`
       );
       return res.data;
     },
@@ -54,7 +54,9 @@ const MyAssets = () => {
 
   const handleReturn = async (_id) => {
     try {
-      await axios.patch(`http://localhost:3000/assigned-assets/return/${_id}`);
+      await axios.patch(
+        `https://assetverse-server-lyart.vercel.app/assigned-assets/return/${_id}`
+      );
       refetch();
       toast.success("Asset returned successfully!");
     } catch (err) {

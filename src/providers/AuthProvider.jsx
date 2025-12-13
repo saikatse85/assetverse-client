@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         try {
           const token = await currentUser.getIdToken();
           const res = await axios.get(
-            `http://localhost:3000/users/email/${currentUser.email}`
+            `https://assetverse-server-lyart.vercel.app/users/email/${currentUser.email}`
           );
 
           setUser({

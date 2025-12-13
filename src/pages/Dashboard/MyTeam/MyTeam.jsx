@@ -16,7 +16,9 @@ const MyTeam = () => {
   } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/hr/employees/${user?.email}`);
+      const res = await axiosSecure.get(
+        `https://assetverse-server-lyart.vercel.app/hr/employees/${user?.email}`
+      );
       return res.data;
     },
     enabled: !!user?.email,

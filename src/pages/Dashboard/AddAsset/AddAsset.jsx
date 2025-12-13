@@ -49,7 +49,7 @@ const AddAsset = () => {
 
     try {
       const response = await axiosSecure.post(
-        "http://localhost:3000/assets",
+        "https://assetverse-server-lyart.vercel.app/assets",
         newAsset,
         {
           headers: { "Content-Type": "application/json" },

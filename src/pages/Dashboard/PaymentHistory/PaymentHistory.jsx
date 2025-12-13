@@ -11,7 +11,7 @@ const PaymentHistory = () => {
     queryKey: ["payments", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `http://localhost:3000/payments/${user.email}`
+        `https://assetverse-server-lyart.vercel.app/payments/${user.email}`
       );
       return res.data;
     },

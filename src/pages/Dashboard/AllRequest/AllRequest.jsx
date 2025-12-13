@@ -10,7 +10,9 @@ const AllRequests = () => {
   const { data: requests = [], refetch } = useQuery({
     queryKey: ["requests"],
     queryFn: async () => {
-      const res = await axiosSecure.get("http://localhost:3000/requests");
+      const res = await axiosSecure.get(
+        "https://assetverse-server-lyart.vercel.app/requests"
+      );
       return res.data;
     },
   });
@@ -19,7 +21,7 @@ const AllRequests = () => {
   const handleApprove = async (id, reqObj) => {
     try {
       const res = await axiosSecure.post(
-        "http://localhost:3000/assigned-assets",
+        "https://assetverse-server-lyart.vercel.app/assigned-assets",
         {
           assetId: reqObj.assetId,
           assetName: reqObj.assetName,
@@ -57,9 +59,12 @@ const AllRequests = () => {
   //  REJECT REQUEST (Optional)
   const handleReject = async (id) => {
     try {
-      await axiosSecure.patch(`http://localhost:3000/requests/reject/${id}`, {
-        status: "rejected",
-      });
+      await axiosSecure.patch(
+        `https://assetverse-server-lyart.vercel.app/requests/reject/${id}`,
+        {
+          status: "rejected",
+        }
+      );
 
       Swal.fire("Rejected", "Request has been rejected", "warning");
       refetch();

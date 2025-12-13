@@ -16,7 +16,7 @@ const MyEmployeeList = () => {
     queryKey: ["employees", hrEmail],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `http://localhost:3000/hr/employees/${hrEmail}`
+        `https://assetverse-server-lyart.vercel.app/hr/employees/${hrEmail}`
       );
       return res.data;
     },
@@ -36,7 +36,7 @@ const MyEmployeeList = () => {
     if (confirm.isConfirmed) {
       try {
         await axiosSecure.patch(
-          `http://localhost:3000/hr/remove-employee/${employeeId}`
+          `https://assetverse-server-lyart.vercel.app/hr/remove-employee/${employeeId}`
         );
         Swal.fire("Removed!", "Employee has been removed.", "success");
         refetch();

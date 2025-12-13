@@ -13,7 +13,7 @@ const AssetList = () => {
 
   useEffect(() => {
     axiosSecure
-      .get("http://localhost:3000/assets")
+      .get("https://assetverse-server-lyart.vercel.app/assets")
       .then((res) => setAssets(res?.data))
       .catch((err) => console.error(err));
   }, []);

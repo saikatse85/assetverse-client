@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
     const verifyPayment = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/verify-payment?session_id=${session_id}`
+          `https://assetverse-server-lyart.vercel.app/verify-payment?session_id=${session_id}`
         );
         const data = await res.json();
 
