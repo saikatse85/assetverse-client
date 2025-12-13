@@ -58,7 +58,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* RIGHT — Theme Switch + User Icon */}
+        {/* RIGHT Theme Switch  User Icon */}
         <div className="flex items-center gap-4">
           {/* THEME BUTTON */}
           <label className="swap swap-rotate cursor-pointer">
@@ -98,8 +98,11 @@ const Navbar = () => {
                   {role === "employee" && (
                     <>
                       <div className="flex flex-col py-2 ml-5">
-                        <p className="text-green-600">{user?.email}</p>
-                        <p className="text-green-600">{user?.role}</p>
+                        <div className="flex flex-col">
+                          <p className="text-green-600">{user?.email}</p>
+                          <p className="text-green-600">Role:{user?.role}</p>
+                          <div className="divider"></div>
+                        </div>
                         <Link
                           onClick={closeMenu}
                           to="/dashboard/my-assets"
@@ -169,7 +172,6 @@ const Navbar = () => {
                       </div>
                     </>
                   )}
-
                   <button
                     onClick={() => {
                       logOut();
