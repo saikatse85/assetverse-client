@@ -1,6 +1,6 @@
 ## Project Name
 
-🚀 ASSETVERSE
+## 🚀 ASSETVERSE
 
 ## Purpose
 
@@ -58,18 +58,15 @@ Overall, AssetVerse demonstrates a real-world enterprise-level solution that com
 - **jsonwebtoken** – Authentication (JWT)
 - **bcryptjs** – Password hashing
 
-## 🚀 Installation & Setup
+## Repository Link
 
-```bash
-# Clone the repository client
+# Repository client
+
 git clone https://github.com/saikatse85/assetverse-client.git
 
-# Clone the repository server
+# Repository server
+
 git clone https://github.com/saikatse85/assetverse-server.git
-
-# Install dependencies
-npm install
-
 
 ## Technologies Used
 
@@ -81,9 +78,12 @@ npm install
 
 ## 📄 License
 
-This project is licensed under the Asset Verse .
+This project is licensed under the AssetVerse .
 
 ---
 
 > Developed by **Md Shakhawat Hossen**
+
+```
+
 ```
