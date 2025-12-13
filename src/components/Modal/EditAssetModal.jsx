@@ -20,7 +20,7 @@ const EditAssetModal = ({ asset, isOpen, onClose, onUpdate }) => {
         _id: asset._id || "",
       });
     }
-  }, [asset]);
+  }, [asset, setUpdatedAsset]);
 
   if (!isOpen) return null;
 

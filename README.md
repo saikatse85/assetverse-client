@@ -62,11 +62,11 @@ Overall, AssetVerse demonstrates a real-world enterprise-level solution that com
 
 # Repository client
 
-git clone https://github.com/saikatse85/assetverse-client.git
+- https://github.com/saikatse85/assetverse-client.git
 
 # Repository server
 
-git clone https://github.com/saikatse85/assetverse-server.git
+- https://github.com/saikatse85/assetverse-server.git
 
 ## Technologies Used
 
