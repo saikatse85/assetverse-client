@@ -1,6 +1,8 @@
-# Project Name
+## Project Name
 
-## 📌 Purpose
+    AssetVerse
+
+## Purpose
 
 AssetVerse is a full-stack B2B Corporate Asset Management System designed to help organizations efficiently track, assign, and manage physical assets across multiple departments and companies. The platform provides a centralized solution for HR managers to maintain complete visibility of company assets while enabling employees to request, receive, and return assets in a structured and accountable manner.
 
@@ -22,15 +24,27 @@ Overall, AssetVerse demonstrates a real-world enterprise-level solution that com
 
 ## 🌐 Live URL
 
-**Live Site:** [https://your-live-url.com](https://your-live-url.com)
+**Live Site:**
 
 ## Key Features
 
-- Feature 1: Short explanation
-- Feature 2: Short explanation
-- Feature 3: Short explanation
-- Responsive design
-- Secure authentication (if applicable)
+- Role-Based Dashboards (HR & Employee)
+  Separate access and features for HR managers and employees with secure authentication.
+
+- Asset Inventory & Assignment Management
+  HR can manage assets and assign them directly or via employee requests.
+
+- Asset Request & Approval Workflow
+  Employees request assets; HR approves/rejects with automatic quantity updates.
+
+- Auto & Multi-Company Employee Affiliation
+  Employees are automatically affiliated and can work with multiple companies.
+
+- Subscription & Package Limit System
+  Employee limits enforced with Stripe-powered package upgrades.
+
+- Responsive & Professional UI
+  Fully responsive dashboard using DaisyUI with clean, corporate design.
 
 ## NPM Packages Used
 
@@ -56,15 +70,13 @@ git clone https://github.com/saikatse85/assetverse-server.git
 # Install dependencies
 npm install
 
-# Run the project
-npm run dev
-```
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Frontend: React, Tailwind CSS
 - Backend: Node.js, Express.js
 - Database: MongoDB
+- Firebase Authentication
 - Authentication: JWT
 
 ## 📄 License
@@ -74,3 +86,4 @@ This project is licensed under the Asset Verse .
 ---
 
 > Developed by **Md Shakhawat Hossen**
+```
