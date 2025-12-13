@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import EditAssetModal from "../../../components/Modal/EditAssetModal";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const AssetList = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +22,9 @@ const AssetList = () => {
   } = useQuery({
     queryKey: ["assets", page, limit],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/assets?page=${page}&limit=${limit}`);
+      const res = await axiosSecure.get(
+        `https://assetverse-server-lyart.vercel.app/assets?page=${page}&limit=${limit}`
+      );
       return res.data;
     },
     keepPreviousData: true,

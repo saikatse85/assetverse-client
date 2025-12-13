@@ -21,7 +21,7 @@ const HRAnalytics = () => {
   const { data: assetTypes = [], isLoading: loading1 } = useQuery({
     queryKey: ["assetTypes"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/analytics/asset-types");
+      const res = await axiosSecure.get("/asset-types");
       return res.data;
     },
   });
@@ -29,7 +29,7 @@ const HRAnalytics = () => {
   const { data: topAssets = [], isLoading: loading2 } = useQuery({
     queryKey: ["topAssets"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/analytics/top-assets");
+      const res = await axiosSecure.get("/top-assets");
       return res.data;
     },
   });
