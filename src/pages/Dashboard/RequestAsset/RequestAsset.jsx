@@ -8,7 +8,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const RequestAsset = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  console.log(user);
 
   const queryClient = useQueryClient(); // <-- Already Correct
   const [selectedAsset, setSelectedAsset] = useState(null);
@@ -19,10 +18,10 @@ const RequestAsset = () => {
   const { data: assets = [], isLoading } = useQuery({
     queryKey: ["assets"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(
+      const res = await axiosSecure.get(
         "https://assetverse-server-lyart.vercel.app/assets"
       );
-      return data.filter((asset) => asset.availableQuantity > 0);
+      return res.data.assets.filter((asset) => asset.availableQuantity > 0);
     },
   });
 

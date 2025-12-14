@@ -4,7 +4,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import EditAssetModal from "../../../components/Modal/EditAssetModal";
 import Swal from "sweetalert2";
-import axios from "axios";
 
 const AssetList = () => {
   const axiosSecure = useAxiosSecure();
