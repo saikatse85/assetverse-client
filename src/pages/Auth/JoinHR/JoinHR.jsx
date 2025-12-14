@@ -57,7 +57,7 @@ const JoinHR = () => {
         profileImage: imageURl,
       };
 
-      await axios.post("https://assignment-11-839b6.web.app/users", hrData);
+      await axios.post("https://assetverse-server-lyart.vercel.app", hrData);
 
       setSuccess("HR Manager account created successfully!");
       navigate("/");
