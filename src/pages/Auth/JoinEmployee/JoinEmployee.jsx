@@ -1,12 +1,11 @@
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../providers/AuthContext"; // Adjust path
+import { AuthContext } from "../../../providers/AuthContext";
 import { imageUpload } from "../../../Utils";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const JoinEmployee = () => {
-  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -45,7 +44,7 @@ const JoinEmployee = () => {
         profileImage: imageURl,
         createdAt: new Date(),
       };
-      await axiosSecure.post(
+      await axios.post(
         "https://assetverse-server-lyart.vercel.app/users",
         userData
       );

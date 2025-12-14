@@ -1,13 +1,12 @@
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../providers/AuthContext"; // adjust path
+import { AuthContext } from "../../../providers/AuthContext";
 import { imageUpload } from "../../../Utils";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const JoinHR = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
-  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const {
     register,
@@ -58,10 +57,7 @@ const JoinHR = () => {
         profileImage: imageURl,
       };
 
-      await axiosSecure.post(
-        "https://assetverse-server-lyart.vercel.app/users",
-        hrData
-      );
+      await axios.post("https://assignment-11-839b6.web.app/users", hrData);
 
       setSuccess("HR Manager account created successfully!");
       navigate("/");
