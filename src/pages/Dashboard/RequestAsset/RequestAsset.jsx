@@ -88,6 +88,7 @@ const RequestAsset = () => {
             />
             <h3 className="font-semibold">{asset.productName}</h3>
             <p>Type: {asset.productType}</p>
+            <p>Company: {asset.companyName}</p>
             <p>Available: {asset.availableQuantity}</p>
 
             <button

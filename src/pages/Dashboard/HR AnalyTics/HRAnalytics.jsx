@@ -21,7 +21,9 @@ const HRAnalytics = () => {
   const { data: assetTypes = [], isLoading: loading1 } = useQuery({
     queryKey: ["assetTypes"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/asset-types");
+      const res = await axiosSecure.get(
+        "https://assetverse-server-lyart.vercel.app/asset-types"
+      );
       return res.data;
     },
   });
@@ -29,7 +31,9 @@ const HRAnalytics = () => {
   const { data: topAssets = [], isLoading: loading2 } = useQuery({
     queryKey: ["topAssets"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/top-assets");
+      const res = await axiosSecure.get(
+        "https://assetverse-server-lyart.vercel.app/top-assets"
+      );
       return res.data;
     },
   });

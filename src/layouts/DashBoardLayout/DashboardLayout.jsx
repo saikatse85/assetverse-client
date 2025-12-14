@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import ActiveNavLink from "../../components/Shared/ActiveNavLink/ActiveNavLink";
@@ -28,15 +28,22 @@ const DashboardLayout = () => {
           : "bg-gray-100 text-gray-900"
       }`}
     >
-      {/* Sidebar */}
+      {/* ================= Overlay (Mobile) ================= */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+        />
+      )}
+
+      {/* ================= Sidebar ================= */}
       <aside
-        className={`${
-          theme === "dark" ? "bg-gray-800" : "bg-white"
-        } w-72 shadow-md p-6 fixed lg:static top-0 left-0 h-full z-40
-  transform transition-transform duration-300
-  ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
+        className={`fixed lg:static top-0 left-0 h-full w-72 p-6 z-40
+        transform transition-transform duration-300
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+        ${theme === "dark" ? "bg-gray-800" : "bg-white"} shadow-md`}
       >
-        {/* Close button only mobile */}
+        {/* Close button (mobile only) */}
         <button
           className="lg:hidden mb-4 text-xl"
           onClick={() => setSidebarOpen(false)}
@@ -46,54 +53,91 @@ const DashboardLayout = () => {
 
         <h2 className="text-2xl font-bold mb-6">AssetVerse Dashboard</h2>
 
-        {/* HR Menu */}
+        {/* ================= HR MENU ================= */}
         {user?.role === "hr" && (
           <>
             <h3 className="text-lg font-semibold mb-2">HR MANAGER</h3>
             <nav className="space-y-3 mb-6 flex flex-col">
-              <ActiveNavLink to="/dashboard/asset-list">
+              <ActiveNavLink
+                to="/dashboard/asset-list"
+                onClick={() => setSidebarOpen(false)}
+              >
                 📦 Asset List
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/add-asset">
-                ➕ Add an Asset
+              <ActiveNavLink
+                to="/dashboard/add-asset"
+                onClick={() => setSidebarOpen(false)}
+              >
+                ➕ Add Asset
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/employee-list">
-                👥 My Employee List
+              <ActiveNavLink
+                to="/dashboard/employee-list"
+                onClick={() => setSidebarOpen(false)}
+              >
+                👥 Employee List
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/all-requests">
+              <ActiveNavLink
+                to="/dashboard/all-requests"
+                onClick={() => setSidebarOpen(false)}
+              >
                 📄 All Requests
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/upgrade-package">
+              <ActiveNavLink
+                to="/dashboard/upgrade-package"
+                onClick={() => setSidebarOpen(false)}
+              >
                 🚀 Upgrade Package
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/payment-history">
+              <ActiveNavLink
+                to="/dashboard/payment-history"
+                onClick={() => setSidebarOpen(false)}
+              >
                 💳 Payment History
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/hr-analytics">
+              <ActiveNavLink
+                to="/dashboard/hr-analytics"
+                onClick={() => setSidebarOpen(false)}
+              >
                 📊 HR Analytics
               </ActiveNavLink>
             </nav>
           </>
         )}
 
-        {/* Employee Menu */}
+        {/* ================= EMPLOYEE MENU ================= */}
         {user?.role === "employee" && (
           <>
             <h3 className="text-lg font-semibold mb-2">EMPLOYEE</h3>
             <nav className="space-y-3 flex flex-col">
-              <ActiveNavLink to="/dashboard/my-assets">
+              <ActiveNavLink
+                to="/dashboard/my-assets"
+                onClick={() => setSidebarOpen(false)}
+              >
                 📁 My Assets
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/request-assets">
-                📝 Request an Asset
+              <ActiveNavLink
+                to="/dashboard/request-assets"
+                onClick={() => setSidebarOpen(false)}
+              >
+                📝 Request Asset
               </ActiveNavLink>
-              <ActiveNavLink to="/dashboard/my-team">🏢 My Team</ActiveNavLink>
-              <ActiveNavLink to="/dashboard/profile">🙍 Profile</ActiveNavLink>
+              <ActiveNavLink
+                to="/dashboard/my-team"
+                onClick={() => setSidebarOpen(false)}
+              >
+                🏢 My Team
+              </ActiveNavLink>
+              <ActiveNavLink
+                to="/dashboard/profile"
+                onClick={() => setSidebarOpen(false)}
+              >
+                🙍 Profile
+              </ActiveNavLink>
             </nav>
           </>
         )}
 
-        {/* Dark/Light Toggle */}
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           className="mt-10 w-full py-2 bg-[#00e5ff] hover:bg-[#00bcd4] text-white rounded font-medium"
@@ -102,15 +146,15 @@ const DashboardLayout = () => {
         </button>
       </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-y-auto lg:ml-0">
+      {/* ================= Main Content ================= */}
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header
-          className={`${
+          className={`p-4 h-16 shadow flex justify-between items-center ${
             theme === "dark" ? "bg-gray-800" : "bg-white"
-          } p-4 shadow h-16 shrink-0 flex justify-between items-center`}
+          }`}
         >
-          {/* Mobile Menu Button */}
+          {/* Mobile menu */}
           <button
             className="lg:hidden text-2xl"
             onClick={() => setSidebarOpen(true)}
@@ -121,13 +165,14 @@ const DashboardLayout = () => {
           <h1 className="text-lg font-semibold">Dashboard Overview</h1>
 
           <div
-            className={`${
+            className={`w-10 h-10 rounded-full ${
               theme === "dark" ? "bg-gray-700" : "bg-gray-300"
-            } w-10 h-10 rounded-full`}
-          ></div>
+            }`}
+          />
         </header>
 
-        <main className="p-6 space-y-8 flex-1 overflow-y-auto">
+        {/* Page Content */}
+        <main className="flex-1 overflow-y-auto p-6">
           <Outlet />
         </main>
       </div>
