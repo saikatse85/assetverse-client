@@ -11,7 +11,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="min-h-screen px-6 py-12 bg-base-100 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen max-w-7xl m-auto px-6 py-12 bg-base-100 dark:bg-gray-900 transition-colors duration-300">
       <h1 className="text-4xl font-bold text-center mb-10  dark:text-white">
         Our Services
       </h1>
