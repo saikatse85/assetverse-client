@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import LoadingSpinner from "../../../components/Shared/LoadingSpinner";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const UpgradePackage = () => {
   const { user } = useAuth();
@@ -26,12 +27,15 @@ const UpgradePackage = () => {
 
   const handleCheckout = async (pkg) => {
     try {
-      const { data } = await axiosSecure.post("/create-payment-session", {
-        email: user.email,
-        packageName: pkg.name,
-        price: pkg.price,
-        employeeLimit: pkg.employeeLimit,
-      });
+      const { data } = await axiosSecure.post(
+        "https://assetverse-server-lyart.vercel.app/create-payment-session",
+        {
+          email: user.email,
+          packageName: pkg.name,
+          price: pkg.price,
+          employeeLimit: pkg.employeeLimit,
+        }
+      );
 
       if (data?.url) {
         window.location.href = data.url;
@@ -43,7 +47,7 @@ const UpgradePackage = () => {
         "Stripe Checkout Error:",
         err.response?.data || err.message
       );
-      alert("Payment initiation failed!");
+      toast.error("Payment initiation failed!");
     }
   };
 

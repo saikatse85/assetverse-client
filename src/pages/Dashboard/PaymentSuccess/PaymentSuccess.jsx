@@ -19,7 +19,7 @@ const PaymentSuccess = () => {
         const data = await res.json();
 
         if (data.success) {
-          setPaymentData(data.payment); // store payment details
+          setPaymentData(data.payment);
         }
       } catch (error) {
         console.error("Payment verification failed:", error);
