@@ -46,7 +46,10 @@ const AssetList = () => {
         dataToUpdate.productQuantity = parseInt(dataToUpdate.productQuantity);
       }
 
-      const res = await axiosSecure.patch(`/assets/${_id}`, dataToUpdate);
+      const res = await axiosSecure.patch(
+        `https://assetverse-server-lyart.vercel.app/assets/${_id}`,
+        dataToUpdate
+      );
 
       if (res.data.modifiedCount > 0) {
         toast.success("Asset updated successfully");
@@ -71,7 +74,9 @@ const AssetList = () => {
     });
 
     if (confirm.isConfirmed) {
-      const res = await axiosSecure.delete(`/assets/${id}`);
+      const res = await axiosSecure.delete(
+        `https://assetverse-server-lyart.vercel.app/assets/${id}`
+      );
       if (res.data.success) {
         Swal.fire("Deleted!", "Asset has been deleted.", "success");
         refetch();
