@@ -41,7 +41,7 @@ const Footer = () => {
             Quick Links
           </h3>
           <div className="space-y-2">
-            <div className="md:flex flex-col gap-6 text-[16px] font-medium">
+            <div className="flex md:flex flex-col gap-6 text-[16px] font-medium">
               <ActiveNavLink to="/">Home</ActiveNavLink>
               <ActiveNavLink to="/about-us">About Us</ActiveNavLink>
               <ActiveNavLink to="/services">Services</ActiveNavLink>
